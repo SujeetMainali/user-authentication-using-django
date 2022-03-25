@@ -1,0 +1,35 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <title>Home</title>
+    <style>
+        .btn:hover{
+            background-color: red;
+            color: rgb(67, 236, 89) ;
+        }
+        .btn{
+            height: 40px;
+            background-color: rgb(67, 236, 89);
+            border-radius: 10px;
+            font-size: 20px;
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            cursor: pointer;
+            transition: 2s;
+            
+        }
+    </style>
+</head>
+<body>
+    <h1>welcome {{request.user}} to the website..........</h1>
+    <form action="/login">
+        <button class="btn">Logout</button>
+    </form>
+</body>
+</html>

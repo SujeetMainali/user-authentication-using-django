@@ -1,0 +1,100 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <style>
+       .productsSection {
+    align-items: center;
+    
+    margin: auto;
+    margin-top: 56px;
+}
+.row {
+    width: 30vw;
+    height: 90%;
+    border-radius: 50%;
+    display: flex;
+    background-color: blanchedalmond;
+    position: relative;
+    padding: 10px;
+    margin: auto;
+    margin-top: 10px;
+}
+#row{
+    display: flex;
+    justify-content: center;
+}
+#please{
+    display: flex;
+    justify-content: center;
+}
+        input{
+            border-radius: 10px;
+            border: 2px solid greenyellow;
+            margin: 5px;
+            height: 50px;
+            width: 180px;
+        }
+        .btn:hover{
+            background-color: red;
+            color: rgb(67, 236, 89) ;
+        }
+        .btn{
+            height: 30px;
+            background-color: rgb(67, 236, 89);
+            border-radius: 10px;
+            font-size: 15px;
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            cursor: pointer;
+            transition: 2s;
+            
+        }
+        #btn{
+            display: flex;
+            justify-content: center;
+        }
+        h3{
+            color: red;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    
+    <div class="productsSection">
+        <div class="row" id="please"><h3 id="flash">Please login first!!</h3></div>
+        <div class="row" id="row">
+            <form method="post" action="/login" >
+                {% csrf_token %}
+                  <input type="text" name="username" id="username" placeholder="username"><br>
+                  <input type="password" name="password" id="password" placeholder="password"><br>
+                  <div id="btn">
+                    <button class="btn">Login</button>
+                  </div>
+              </form>
+        </div>
+    </div>
+</body>
+<script>
+     function flashColor() {
+        var flash = document.getElementById("flash");
+        if (flash.style.color == "red") {
+            flash.style.color = "blue";
+        }
+        else if (flash.style.color == "blue") {
+            flash.style.color = "green";
+        }
+        else {
+            flash.style.color = "red";
+        }
+    }
+    setInterval(flashColor, 200); //it changes the color of "hot items" every 0.2 second
+</script>
+</html>
